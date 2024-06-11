@@ -9,13 +9,18 @@ Example run :
 ![image](https://github.com/dreamkinn/CompileCSDocker/assets/55366132/6bfc45b1-5b99-4b18-a59c-a5eb5f12ec69)
 
 ## Build and Installation
+Choose if you want to build for docker or podman
+### Docker build
 ```
+# Docker
+ln -s entrypoint_docker.sh entrypoint.sh
 docker build -t csbuild . 
 ```
 
-For podman, replace `entrypoint.sh` with `entrypoint_podman.sh` :
+### Podman build
 ```
-mv entrypoint_podman.sh entrypoint.sh
+# Podman
+ln -s entrypoint_podman.sh entrypoint.sh
 podman pull docker.io/library/mono
 podman build . -t csbuild
 ```
