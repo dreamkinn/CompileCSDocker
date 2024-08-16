@@ -1,0 +1,18 @@
+FROM mono:latest
+
+RUN apt-get update && apt-get install -y git
+
+VOLUME /data
+
+COPY entrypoint.sh /entrypoint.sh
+COPY tools.txt /tools.txt
+
+RUN chmod +x /entrypoint.sh
+
+ENV DOTNET_CLI_HOME=/home/runner
+ENV XDG_DATA_HOME=/home/runner
+
+RUN useradd -ms /bin/bash runner
+USER runner
+
+ENTRYPOINT ["/entrypoint.sh"]

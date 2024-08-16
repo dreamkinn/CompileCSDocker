@@ -13,21 +13,21 @@ Choose if you want to build for docker or podman
 ### Docker build
 ```
 # Docker
-ln -s entrypoint_docker.sh entrypoint.sh
-docker build -t csbuild . 
+./build.sh docker
 ```
 
 ### Podman build
 ```
 # Podman
-ln -s entrypoint_podman.sh entrypoint.sh
 podman pull docker.io/library/mono
-podman build . -t csbuild
+./build.sh podman
 ```
 
 You can set an alias in your .bashrc
 ```
 alias csb="docker run -it -v $(pwd):/data --rm csbuild"
+# or
+alias csb="podman run -it -v $(pwd):/data --rm csbuild"
 ```
 ## Usage
 ```
