@@ -19,7 +19,6 @@ Choose if you want to build for docker or podman
 ### Podman build
 ```
 # Podman
-podman pull docker.io/library/mono
 ./build.sh podman
 ```
 
